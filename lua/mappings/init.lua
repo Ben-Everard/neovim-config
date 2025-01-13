@@ -40,3 +40,7 @@ map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", opts)
 map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
 map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
 map("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
+
+
+map("n", "<leader>fs", "<cmd>LspZeroFormat<CR><cmd>w<CR>", opts)
+

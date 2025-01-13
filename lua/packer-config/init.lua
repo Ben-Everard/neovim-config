@@ -3,9 +3,6 @@ vim.cmd [[packadd packer.nvim]]
 require("packer").startup({function(use)
     use {"wbthomason/packer.nvim", opt = true}
 
-    -- LSP
-    use "neovim/nvim-lspconfig"
-
     ---- for easily changing a line to comment
     use "preservim/nerdcommenter"
 
@@ -35,17 +32,16 @@ require("packer").startup({function(use)
     -- LSP Setup
     use {
       'VonHeikemen/lsp-zero.nvim',
-      branch = 'v2.x',
+      branch = 'v3.x',
       requires = {
-        -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {'williamboman/mason.nvim'},           -- Optional
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        --- Uncomment the two plugins below if you want to manage the language servers from neovim
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
 
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+        {'neovim/nvim-lspconfig'},
+        {'hrsh7th/nvim-cmp'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'L3MON4D3/LuaSnip'},
       }
     }
 
@@ -55,12 +51,14 @@ require("packer").startup({function(use)
 
     -- Flutter-tools Packages
     use {
-        'akinsho/flutter-tools.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'stevearc/dressing.nvim', -- optional for vim.ui.select
-        },
+      'akinsho/flutter-tools.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+      },
     }
+
+    use {'yanganto/move.vim', branch = 'sui-move'}
 
     -- Trouble
     use {
@@ -74,6 +72,11 @@ require("packer").startup({function(use)
         }
       end,
     }
-
+    use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+        'nvim-tree/nvim-web-devicons', -- optional
+      },
+    }
   end
 })

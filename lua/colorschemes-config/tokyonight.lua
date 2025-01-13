@@ -34,5 +34,6 @@ require("tokyonight").setup({
   end,
 })-- Load the colorscheme
 
+local util = require("tokyonight.util")
 
 vim.cmd[[colorscheme tokyonight-night]]
